@@ -19,9 +19,25 @@ public class playercontroller : MonoBehaviour
     void playermovement()
     {
         rb.velocity = new Vector2(Input.GetAxis("Horizontal")*speed, rb.velocity.y);
+
+        if (Input.GetKey(KeyCode.W) && isGrounded==true)
         if(Input.GetButton("Jump"))
         {
-            rb.velocity = new Vector2(50, jumpPower);
+            rb.velocity = new Vector2(rb.velocity.x, jumpPower);
         }
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+    if (collision.collider.name == "Ground")
+    {
+        isGrounded = true;
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.collider.name == "Ground")
+        {
+            isGrounded = false;
+        }
+    }
+
 }
