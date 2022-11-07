@@ -20,10 +20,10 @@ public class playercontroller : MonoBehaviour
 
     void playermovement()
     {
-        rb.velocity = new Vector2(Input.GetAxis("Horizontal")*speed, 0);
+        rb.velocity = new Vector2(Input.GetAxis("Horizontal")*speed, rb.velocity.y);
         if(Input.GetButton("Jump"))
         {
-            rb.AddForce(transform.up* speed, ForceMode2D.Impulse);
+            rb.velocity = new Vector2(50, jumpPower);
         }
     }
 }
