@@ -38,5 +38,3 @@ public class playercontroller : MonoBehaviour
             isGrounded = false;
         }
     }
-
-}
