@@ -6,6 +6,8 @@ public class playercontroller : MonoBehaviour
 {
     private Rigidbody2D rb;
     public float speed = 15f;
+    bool isGrounded = true;
+    public float jumpPower = 15f;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -22,7 +24,7 @@ public class playercontroller : MonoBehaviour
         if (Input.GetKey(KeyCode.W) && isGrounded==true)
         if(Input.GetButton("Jump"))
         {
-            rb.velocity = new Vector2(rb.velocity.x);
+            rb.velocity = new Vector2(rb.velocity.x, jumpPower);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -31,6 +33,7 @@ public class playercontroller : MonoBehaviour
     {
         isGrounded = true;
     }
+    }
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.collider.name == "Ground")
@@ -38,5 +41,4 @@ public class playercontroller : MonoBehaviour
             isGrounded = false;
         }
     }
-
 }
