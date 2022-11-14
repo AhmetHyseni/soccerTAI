@@ -6,7 +6,6 @@ public class playercontroller : MonoBehaviour
 {
     private Rigidbody2D rb;
     public float speed = 15f;
-    public float jumpPower = 15f;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -23,7 +22,7 @@ public class playercontroller : MonoBehaviour
         if (Input.GetKey(KeyCode.W) && isGrounded==true)
         if(Input.GetButton("Jump"))
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+            rb.velocity = new Vector2(rb.velocity.x);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
