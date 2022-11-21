@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playercontroller : MonoBehaviour
+public class Playercontroller2 : MonoBehaviour
 {
     private Rigidbody2D rb;
     public float speed = 150f;
@@ -25,20 +25,20 @@ public class playercontroller : MonoBehaviour
     void player1Input()
     {
         Debug.Log("MovementX arvo on: "+ movementX);
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             movementX = -1f*speed;
             
         }
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             movementX = 1f*speed;
         }
-        if(Input.GetKeyUp(KeyCode.D))
+        if(Input.GetKeyUp(KeyCode.RightArrow))
         {
             movementX = 0f;
         }
-        if(Input.GetKeyUp(KeyCode.A))
+        if(Input.GetKeyUp(KeyCode.LeftArrow))
         {
             movementX = 0f;
         }
@@ -47,7 +47,7 @@ public class playercontroller : MonoBehaviour
     {   
         rb.velocity = new Vector2(movementX, rb.velocity.y);
 
-        if (Input.GetKey(KeyCode.W) && isGrounded==true)
+        if (Input.GetKey(KeyCode.UpArrow) && isGrounded==true)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
         }
