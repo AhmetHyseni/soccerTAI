@@ -24,7 +24,6 @@ public class playercontroller : MonoBehaviour
     }
     void player1Input()
     {
-        Debug.Log("MovementX arvo on: "+ movementX);
         if (Input.GetKeyDown(KeyCode.A))
         {
             movementX = -1f*speed;

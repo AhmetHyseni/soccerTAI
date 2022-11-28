@@ -24,7 +24,7 @@ public class Playercontroller2 : MonoBehaviour
     }
     void player1Input()
     {
-        Debug.Log("MovementX arvo on: "+ movementX);
+ 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             movementX = -1f*speed;
