@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scene/Testi_Ahmet.unity
+    guid: 8b4e4ed9571285740a34fe1473f61a9b
   m_configObjects: {}

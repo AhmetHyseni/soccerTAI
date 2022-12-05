@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using UnityEngine.SceneManagement;
 
 
 
@@ -36,6 +37,10 @@ public class Score : MonoBehaviour
         player2.text = player2Score.ToString();
     }
 
-
+    public IEnumerator Reset()
+    {
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("Testi_Ahmet",LoadSceneMode.Single);
+    }
 
 }
