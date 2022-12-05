@@ -24,7 +24,7 @@ public class AddScorePlayerOne : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Ball"))
         {
-            score.player2Score++;
+            PlayerPrefs.SetInt("player2Score", PlayerPrefs.GetInt("player2Score", score.player2Score)+1);
             StartCoroutine(score.Reset());
         }
     }

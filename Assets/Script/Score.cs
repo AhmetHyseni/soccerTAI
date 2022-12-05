@@ -21,26 +21,32 @@ public class Score : MonoBehaviour
 
     public BoxCollider2D goalLeft;
     public BoxCollider2D goalRight;
+    public int maxGoal;
     void Start()
     {
-        
+        PlayerPrefs.GetInt("player1Score", player1Score);
+        PlayerPrefs.GetInt("player2Score", player2Score);
     }
 
     // Update is called once per frame
     void Update()
     {
         scoreCount();
+        if (PlayerPrefs.GetInt("player1Score", player1Score) == maxGoal)
+        {
+            PlayerPrefs.DeleteAll();
+        }
     }
     public void scoreCount()
     {
-        player1.text = player1Score.ToString();
-        player2.text = player2Score.ToString();
+        player1.text = PlayerPrefs.GetInt("player1Score", player1Score).ToString();
+        player2.text = PlayerPrefs.GetInt("player2Score", player2Score).ToString();
     }
 
     public IEnumerator Reset()
     {
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene("Testi_Ahmet",LoadSceneMode.Single);
+        SceneManager.LoadScene(0,LoadSceneMode.Single);
     }
 
 }
