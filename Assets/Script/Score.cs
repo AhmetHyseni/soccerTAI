@@ -6,10 +6,6 @@ using TMPro;
 using System;
 using UnityEngine.SceneManagement;
 
-
-
-
-
 public class Score : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -18,10 +14,10 @@ public class Score : MonoBehaviour
 
     public int player1Score;
     public int player2Score;
-
     public BoxCollider2D goalLeft;
     public BoxCollider2D goalRight;
     public int maxGoal;
+  
     void Start()
     {
         PlayerPrefs.GetInt("player1Score", player1Score);
@@ -48,5 +44,4 @@ public class Score : MonoBehaviour
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene("Testi_Ahmet",LoadSceneMode.Single);
     }
-
 }

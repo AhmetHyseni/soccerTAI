@@ -19,13 +19,15 @@ public class SC_MainMenu : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene("Testi_Ahmet");
     }
 
-    public void CreditsButton()
+    public void SettingsButton()
     {
-        // Show Credits Menu
-        MainMenu.SetActive(false);
-        CreditsMenu.SetActive(true);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Menu 1");
     }
-
+    
+    public void BackButton()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
+    }
     public void MainMenuButton()
     {
         // Show Main Menu
