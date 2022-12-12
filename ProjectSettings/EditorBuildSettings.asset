@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scene/lollista.unity
+    guid: 1ec2212444ab7244694086cbb752ab1b
+  - enabled: 1
     path: Assets/Scene/Menu.unity
     guid: 84fcfb71e6099e24a8fb12de4270e834
   - enabled: 1
