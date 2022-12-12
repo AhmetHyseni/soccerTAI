@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scene/Rasmus3.unity
-    guid: 3682caff71e42cd43ae1443c24da6f87
-  - enabled: 1
     path: Assets/Scene/Testi_Ahmet.unity
     guid: 8b4e4ed9571285740a34fe1473f61a9b
+  - enabled: 1
+    path: Assets/Scene/Rasmus3.unity
+    guid: 3682caff71e42cd43ae1443c24da6f87
   m_configObjects: {}
