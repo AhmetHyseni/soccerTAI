@@ -46,7 +46,7 @@ public class Score : MonoBehaviour
     public IEnumerator Reset()
     {
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene(0,LoadSceneMode.Single);
+        SceneManager.LoadScene("Testi_Ahmet",LoadSceneMode.Single);
     }
 
 }
