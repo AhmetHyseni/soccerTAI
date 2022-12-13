@@ -12,9 +12,15 @@ EditorBuildSettings:
     path: Assets/Scene/Rasmus3.unity
     guid: 3682caff71e42cd43ae1443c24da6f87
   - enabled: 1
-    path: Assets/Scene/Testi_Ahmet.unity
+    path: Assets/Scene/P1 Vs P2.unity
     guid: 8b4e4ed9571285740a34fe1473f61a9b
   - enabled: 1
-    path: Assets/Scene/Menu 1.unity
+    path: Assets/Scene/Settings.unity
     guid: 6c82bbfcca1889c46af803d5509d025d
+  - enabled: 1
+    path: Assets/Scene/Vs AI.unity
+    guid: 56076cfc8d0559c479f8bb4c7aaef70c
+  - enabled: 1
+    path: Assets/Scene/Game Mode.unity
+    guid: 36b9b48ea1b92e34ba377c359cd17cac
   m_configObjects: {}
