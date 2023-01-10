@@ -12,11 +12,14 @@ public class ai_real : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector3 dir = (target.transform.position - rb2d.transform.position).normalized;
+        if (isGrounded)
+        {
+            Vector3 dir = (target.transform.position - rb2d.transform.position).normalized;
 
         if (Vector3.Distance(target.transform.position, rb2d.transform.position) > minDistance)
         {
             rb2d.MovePosition(rb2d.transform.position + dir * speed * Time.fixedDeltaTime);
+        }
         }
     }
         private void OnCollisionEnter2D(Collision2D collision)
@@ -24,6 +27,7 @@ public class ai_real : MonoBehaviour
         if (collision.collider.name == "Ground")
         {
             isGrounded = true;
+        
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
