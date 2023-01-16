@@ -32,6 +32,10 @@ public class ScoreAi : MonoBehaviour
         {
             PlayerPrefs.DeleteAll();
         }
+        if (PlayerPrefs.GetInt("player2Score", player2Score) == maxGoal)
+        {
+            PlayerPrefs.DeleteAll();
+        }
     }
     public void scoreCount()
     {
@@ -42,6 +46,6 @@ public class ScoreAi : MonoBehaviour
     public IEnumerator Reset()
     {
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene("Vs AI",LoadSceneMode.Single);
+        SceneManager.LoadScene(5,LoadSceneMode.Single);
     }
 }
