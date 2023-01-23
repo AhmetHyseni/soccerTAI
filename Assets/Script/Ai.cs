@@ -4,26 +4,24 @@ using UnityEngine;
 
 public class Ai : MonoBehaviour
 {
+    [Header("Settings")]
     public Transform boolLocation;
     private Vector2 moveLocation;
     public Rigidbody2D rb;
-    private float stoppingDistance = 0.09f;
-    public float speed = 7f;
+    public float speed;
+    private float ballLocation;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
-       
-        moveLocation = new Vector2(boolLocation.transform.position.x, 0);
-        Vector3 dir = (boolLocation.transform.position - transform.position.x).normalized;
-
-        if (Vector3.Distance(boolLocation.transform.position, rb.transform.position) > stoppingDistance)
-        {
-            rb.MovePosition(rb.transform.position + dir * speed * Time.fixedDeltaTime);
-        }
+        Debug.Log("ball" + ballLocation);
+        Debug.Log("move" + moveLocation);
+        ballLocation = boolLocation.position.x - transform.position.x;
+        moveLocation = new Vector2(ballLocation, 0);
+        rb.AddForce(moveLocation.normalized * speed);
     }
 }
