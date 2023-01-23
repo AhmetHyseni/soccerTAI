@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Ai : MonoBehaviour
 {
-    [Header("Settings")]
     public Transform boolLocation;
     private Vector2 moveLocation;
     public Rigidbody2D rb;
