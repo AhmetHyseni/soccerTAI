@@ -1,6 +1,18 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
 guid: c719e38f25a9480abd2480ab621a2949
 NativeFormatImporter:
+=======
+<<<<<<< Updated upstream:Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Anton SDF - Sunny Days.mat.meta
+guid: 6522f30e342599e4e9dd4cc2cc03c830
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+=======
+guid: c719e38f25a9480abd2480ab621a2949
+NativeFormatImporter:
+>>>>>>> Stashed changes:Assets/TextMesh Pro/Examples & Extras/Materials/Ground - Logo Scene.mat.meta
+>>>>>>> Stashed changes
   userData: 
   assetBundleName: 
   assetBundleVariant: 

@@ -6,7 +6,7 @@ using TMPro;
 using System;
 using UnityEngine.SceneManagement;
 
-public class Score : MonoBehaviour
+public class ScoreAi : MonoBehaviour
 {
     // Start is called before the first frame update
     public TMP_Text player1;
@@ -42,10 +42,6 @@ public class Score : MonoBehaviour
     public IEnumerator Reset()
     {
         yield return new WaitForSeconds(1);
-<<<<<<< Updated upstream
-        SceneManager.LoadScene("P1 Vs P2",LoadSceneMode.Single);
-=======
-        SceneManager.LoadScene(5,LoadSceneMode.Single);
->>>>>>> Stashed changes
+        SceneManager.LoadScene("Vs AI",LoadSceneMode.Single);
     }
 }

@@ -1,8 +1,19 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream:Assets/2DGraphics/Materials/Materials/Seinä.physicsMaterial2D.meta
+=======
+>>>>>>> Stashed changes
 guid: 32127b9209187614fb8aaa270ae7cc77
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 6200000
+<<<<<<< Updated upstream
+=======
+guid: e6b9b44320f4448d9d5e0ee634259966
+NativeFormatImporter:
+>>>>>>> Stashed changes:Assets/TextMesh Pro/Examples & Extras/Materials/Crate - Surface Shader Scene.mat.meta
+=======
+>>>>>>> Stashed changes
   userData: 
   assetBundleName: 
   assetBundleVariant: 
