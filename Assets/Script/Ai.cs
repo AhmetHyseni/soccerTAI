@@ -16,10 +16,8 @@ public class Ai : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        Debug.Log("ball" + ballLocation);
-        Debug.Log("move" + moveLocation);
         ballLocation = boolLocation.position.x - transform.position.x;
         moveLocation = new Vector2(ballLocation, 0);
         rb.AddForce(moveLocation.normalized * speed);
