@@ -23,6 +23,7 @@ public class playercontroller : MonoBehaviour
 
         if (Input.GetKey(KeyCode.W) && isGrounded==true)
         {
+            Debug.Log("Hyppy on saatavilla");
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
         }
     }
