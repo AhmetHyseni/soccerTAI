@@ -11,25 +11,55 @@ public class Ai : MonoBehaviour
     public float speed;
     private float ballLocation;
     public float jumpForce;
+    private float tempTime;
+    Ray2D ray;
+
+   
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
+    void Update()
+    {
+        JumpCooldown();
+    }
     void FixedUpdate()
     {
+        NoOwnGoal();
         ballLocation = ball.position.x - transform.position.x;
         float ballLocationY = ball.position.y - transform.position.y;
         moveLocation = new Vector2(ballLocation, 0);
         rb.AddForce(moveLocation.normalized * speed);
+    }
 
-        Vector3 jumpLocation = ball.position - transform.position;
-        float dist = Vector3.Distance(ball.position, transform.position);
-        if (dist < 150 && ballLocationY > 50)
+    void JumpCooldown()
+    { 
+        
+      if (ball.transform.position.y > transform.position.y)
+      {
+         tempTime += Time.deltaTime;
+            if (tempTime >= 2f)
+            {
+                Vector2 jumpDirection = (ball.transform.position - transform.position).normalized;
+                rb.AddForce(jumpDirection * jumpForce, ForceMode2D.Impulse);
+                tempTime = 0;
+            }
+      }
+                       
+        
+        Debug.Log(tempTime);
+    }
+    void NoOwnGoal()
+    {
+        float tempBallLocation = ball.position.x;
+        float tempAiLocation = transform.position.x;
+
+        if (tempBallLocation > tempAiLocation)
         {
-            Debug.Log("Jump");
-            rb.AddForce(jumpLocation.normalized * jumpForce, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.right * speed);
         }
     }
+
 }
