@@ -2273,7 +2273,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 399.69995, y: -148.4}
+  m_AnchoredPosition: {x: 398, y: -148.4}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1737552440
@@ -2346,12 +2346,11 @@ MonoBehaviour:
   p1: {fileID: 1609389555}
   rb: {fileID: 0}
   speed: 500
-  jumpForce: 500
+  jumpForce: 600
   pivotPoint: {x: 0, y: 0}
   range: 1000
-  angle: 135
-  angle2: 160
-  angle3: 0
+  angle: 120
+  angle2: 180
 --- !u!50 &1737552448
 Rigidbody2D:
   serializedVersion: 4
