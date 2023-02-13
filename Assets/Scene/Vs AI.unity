@@ -1381,7 +1381,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1008683520}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 955c42236b735bb4883b74717a85c216, type: 3}
+  m_Script: {fileID: 11500000, guid: 163efe35011761a478b0fdeb551ce878, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player1: {fileID: 1032446791}
@@ -1390,7 +1390,7 @@ MonoBehaviour:
   player2Score: 0
   goalLeft: {fileID: 933529928}
   goalRight: {fileID: 1494757763}
-  maxGoal: 3
+  maxGoal: 10
 --- !u!1 &1032446790
 GameObject:
   m_ObjectHideFlags: 0
@@ -2249,6 +2249,7 @@ GameObject:
   - component: {fileID: 1737552440}
   - component: {fileID: 1737552444}
   - component: {fileID: 1737552445}
+  - component: {fileID: 1737552447}
   m_Layer: 5
   m_Name: Player2
   m_TagString: Untagged
@@ -2322,7 +2323,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1737552438}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
@@ -2358,13 +2359,29 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1737552438}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19ec26743e8840d48b6d342dd4a2b183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 400
   jumpPower: 1000
+--- !u!114 &1737552447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1737552438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bbc5e3900605be41924dcd6d9d63a6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1423322405}
+  speed: 200
+  minDistance: 0.09
+  rb2d: {fileID: 1737552444}
 --- !u!1 &1996536189
 GameObject:
   m_ObjectHideFlags: 0
