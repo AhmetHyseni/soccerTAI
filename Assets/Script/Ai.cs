@@ -105,7 +105,7 @@ public class Ai : MonoBehaviour
         if (collision.gameObject.name == "Player1")
         {
             avoidPlayer = true;
-            Debug.Log("Touching Player 1");
+            Debug.Log("Touching Player 1!");
         }
         else
         {
