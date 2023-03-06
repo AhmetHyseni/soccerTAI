@@ -20,12 +20,10 @@ public class Ai : MonoBehaviour
     public float range = 5.0f;
     public float angle;
     public float angle2;
+    public float angle3;
 
     private Vector2 startPoint = Vector2.zero;
 
-    [Header("Play Strategy")]
-    bool attack = true;
-    
 
 
     void Start()
@@ -35,34 +33,20 @@ public class Ai : MonoBehaviour
 
     void Update()
     {
-        
-    }
-
-    void Shoot()
-    {
         startPoint = (Vector2)transform.position + pivotPoint;
         Vector2 direction = GetDirectionVector2D(angle);
         Vector2 direction2 = GetDirectionVector2D(angle2);
         Vector2 playerDirection = (ball.position - transform.position).normalized;
-
-        float ballAngle = Vector2.Angle(startPoint, playerDirection);
 
 
 
         Physics2D.Raycast(startPoint, direction, range);
         Physics2D.Raycast(startPoint, direction2, range);
         Physics2D.Raycast(startPoint, playerDirection, range);
-        Debug.DrawRay(startPoint, direction * range, Color.blue);
+        Debug.DrawRay(startPoint, direction * range, Color.green);
         Debug.DrawRay(startPoint, direction2 * range, Color.green);
         Debug.DrawRay(startPoint, playerDirection * range, Color.green);
-
-        float distance = Vector2.Distance(ball.position,transform.position);
-
-        if (ballAngle < angle && ballAngle > angle2 && distance < 172f)
-        {
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-        }
-        
+        JumpCooldown();
     }
     public Vector2 GetDirectionVector2D(float angle)
     {
@@ -70,37 +54,16 @@ public class Ai : MonoBehaviour
     }
     void FixedUpdate()
     {
-        Defend();
-        JumpCooldown();
         AvoidPlayer();
-        Shoot();
+        NoOwnGoal();
         ballLocation = ball.position.x - transform.position.x;
         float ballLocationY = ball.position.y - transform.position.y;
         moveLocation = new Vector2(ballLocation, 0);
 
-        float tempDistance = Vector2.Distance(ball.transform.position, transform.position);
-        if (p1.position.x < 600f && tempDistance < 150f)
+        if (avoidPlayer == false)
         {
-            rb.AddForce(Vector2.right * speed);
+            rb.AddForce(moveLocation.normalized * speed);
         }
-        
-            NoOwnGoal();
-            
-
-           if (avoidPlayer == false)
-           {
-                rb.AddForce(moveLocation.normalized * speed);
-           }
-        
-        
-    }
-
-    void Defend()
-    {
-        if (attack == false)
-        {
-            
-        }    
     }
 
     void JumpCooldown()
@@ -118,6 +81,7 @@ public class Ai : MonoBehaviour
       }
                        
         
+        //Debug.Log(tempTime);
     }
     void NoOwnGoal()
     {
@@ -141,6 +105,7 @@ public class Ai : MonoBehaviour
         if (collision.gameObject.name == "Player1")
         {
             avoidPlayer = true;
+            Debug.Log("Touching Player 1!");
         }
         else
         {
