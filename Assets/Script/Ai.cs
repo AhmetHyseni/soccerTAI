@@ -36,7 +36,6 @@ public class Ai : MonoBehaviour
     void Update()
     {
         
-        Debug.Log("Ai position =" + transform.position.x);
     }
 
     void Shoot()
@@ -71,48 +70,37 @@ public class Ai : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (attack == true)
+        Defend();
+        JumpCooldown();
+        AvoidPlayer();
+        Shoot();
+        ballLocation = ball.position.x - transform.position.x;
+        float ballLocationY = ball.position.y - transform.position.y;
+        moveLocation = new Vector2(ballLocation, 0);
+
+        float tempDistance = Vector2.Distance(ball.transform.position, transform.position);
+        if (p1.position.x < 600f && tempDistance < 150f)
         {
-            if (p1.position.x < 500f)
-            {
-                rb.AddForce(Vector2.right * speed);
-            }
+            rb.AddForce(Vector2.right * speed);
+        }
         
-            if (transform.position.x > 400f)
-            {
-                Shoot();
-                JumpCooldown();
-                Debug.Log("Ai is on the safezone++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+            NoOwnGoal();
+            
 
-                AvoidPlayer();
-                NoOwnGoal();
-                ballLocation = ball.position.x - transform.position.x;
-                float ballLocationY = ball.position.y - transform.position.y;
-                moveLocation = new Vector2(ballLocation, 0);
-
-                if (avoidPlayer == false)
-                {
-                    rb.AddForce(moveLocation.normalized * speed);
-                }
-
-            }
-            else
-            {
-                Debug.Log("Ai is on the dangerzone-----------------------------------------------------");
-
-                rb.AddForce(Vector2.right * speed);
-            }
-           
-        }
-        else
-        {
-
-        }
+           if (avoidPlayer == false)
+           {
+                rb.AddForce(moveLocation.normalized * speed);
+           }
+        
+        
     }
 
     void Defend()
     {
-        
+        if (attack == false)
+        {
+            
+        }    
     }
 
     void JumpCooldown()
