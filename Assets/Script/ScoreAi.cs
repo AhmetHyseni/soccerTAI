@@ -42,6 +42,6 @@ public class ScoreAi : MonoBehaviour
     public IEnumerator Reset()
     {
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene("Vs AI",LoadSceneMode.Single);
+        SceneManager.LoadScene("Vs_AI",LoadSceneMode.Single);
     }
 }
