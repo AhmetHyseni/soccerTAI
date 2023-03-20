@@ -19,12 +19,12 @@ public class SC_MainMenu : MonoBehaviour
 
     public void PvPButton()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("P1 Vs P2");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("PvP");
     }
 
     public void AiButton()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Vs AI");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Vs_AI");
     }
 
     public void SettingsButton()
