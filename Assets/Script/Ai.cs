@@ -25,6 +25,8 @@ public class Ai : MonoBehaviour
 
     private Vector2 startPoint = Vector2.zero;
 
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -37,6 +39,8 @@ public class Ai : MonoBehaviour
         Vector2 direction2 = GetDirectionVector2D(angle2);
         Vector2 playerDirection = (ball.position - transform.position).normalized;
 
+
+
         Physics2D.Raycast(startPoint, direction, range);
         Physics2D.Raycast(startPoint, direction2, range);
         Physics2D.Raycast(startPoint, playerDirection, range);
@@ -44,16 +48,6 @@ public class Ai : MonoBehaviour
         Debug.DrawRay(startPoint, direction2 * range, Color.green);
         Debug.DrawRay(startPoint, playerDirection * range, Color.green);
         JumpCooldown();
-
-        // Check if the ball is on the AI's half of the field
-        if (ball.position.x < transform.position.x)
-        {
-            ballOnOwnHalf = true;
-        }
-        else
-        {
-            ballOnOwnHalf = false;
-        }
     }
 
     public Vector2 GetDirectionVector2D(float angle)
@@ -67,11 +61,10 @@ public class Ai : MonoBehaviour
         NoOwnGoal();
         ballLocation = ball.position.x - transform.position.x;
         float ballLocationY = ball.position.y - transform.position.y;
+        moveLocation = new Vector2(ballLocation, 0);
 
-        // If the ball is on the AI's half of the field, follow it as usual
-        if (ballOnOwnHalf || Mathf.Abs(ballLocation) < 300f)
+        if (avoidPlayer == false)
         {
-            moveLocation = new Vector2(ballLocation, 0);
             rb.AddForce(moveLocation.normalized * speed);
         }
     }
@@ -87,7 +80,10 @@ public class Ai : MonoBehaviour
                 rb.AddForce(jumpDirection * jumpForce, ForceMode2D.Impulse);
                 tempTime = 0;
             }
-        }
+      }
+                       
+        
+        //Debug.Log(tempTime);
     }
 
     void NoOwnGoal()
@@ -115,6 +111,10 @@ public class Ai : MonoBehaviour
         {
             avoidPlayer = true;
             Debug.Log("Touching Player 1!");
+        }
+        else
+        {
+            avoidPlayer = false;
         }
     }
 }
