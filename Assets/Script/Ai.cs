@@ -25,6 +25,11 @@ public class Ai : MonoBehaviour
 
     private Vector2 startPoint = Vector2.zero;
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> parent of 994c32b (ai parannuksia)
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -37,6 +42,11 @@ public class Ai : MonoBehaviour
         Vector2 direction2 = GetDirectionVector2D(angle2);
         Vector2 playerDirection = (ball.position - transform.position).normalized;
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> parent of 994c32b (ai parannuksia)
         Physics2D.Raycast(startPoint, direction, range);
         Physics2D.Raycast(startPoint, direction2, range);
         Physics2D.Raycast(startPoint, playerDirection, range);
@@ -44,6 +54,7 @@ public class Ai : MonoBehaviour
         Debug.DrawRay(startPoint, direction2 * range, Color.green);
         Debug.DrawRay(startPoint, playerDirection * range, Color.green);
         JumpCooldown();
+<<<<<<< HEAD
 
         // Check if the ball is on the AI's half of the field
         if (ball.position.x < transform.position.x)
@@ -54,6 +65,8 @@ public class Ai : MonoBehaviour
         {
             ballOnOwnHalf = false;
         }
+=======
+>>>>>>> parent of 994c32b (ai parannuksia)
     }
 
     public Vector2 GetDirectionVector2D(float angle)
@@ -67,11 +80,18 @@ public class Ai : MonoBehaviour
         NoOwnGoal();
         ballLocation = ball.position.x - transform.position.x;
         float ballLocationY = ball.position.y - transform.position.y;
+<<<<<<< HEAD
 
         // If the ball is on the AI's half of the field, follow it as usual
         if (ballOnOwnHalf || Mathf.Abs(ballLocation) < 300f)
         {
             moveLocation = new Vector2(ballLocation, 0);
+=======
+        moveLocation = new Vector2(ballLocation, 0);
+
+        if (avoidPlayer == false)
+        {
+>>>>>>> parent of 994c32b (ai parannuksia)
             rb.AddForce(moveLocation.normalized * speed);
         }
     }
@@ -87,7 +107,14 @@ public class Ai : MonoBehaviour
                 rb.AddForce(jumpDirection * jumpForce, ForceMode2D.Impulse);
                 tempTime = 0;
             }
+<<<<<<< HEAD
         }
+=======
+      }
+                       
+        
+        //Debug.Log(tempTime);
+>>>>>>> parent of 994c32b (ai parannuksia)
     }
 
     void NoOwnGoal()
@@ -115,6 +142,13 @@ public class Ai : MonoBehaviour
         {
             avoidPlayer = true;
             Debug.Log("Touching Player 1!");
+<<<<<<< HEAD
+=======
+        }
+        else
+        {
+            avoidPlayer = false;
+>>>>>>> parent of 994c32b (ai parannuksia)
         }
     }
 }
