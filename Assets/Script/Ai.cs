@@ -25,11 +25,8 @@ public class Ai : MonoBehaviour
 
     private Vector2 startPoint = Vector2.zero;
 
-<<<<<<< HEAD
-=======
 
 
->>>>>>> parent of 994c32b (ai parannuksia)
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -37,16 +34,17 @@ public class Ai : MonoBehaviour
 
     void Update()
     {
+        
+        Debug.Log("Ai position =" + transform.position.x);
+    }
+
+    void Shoot()
+    {
         startPoint = (Vector2)transform.position + pivotPoint;
         Vector2 direction = GetDirectionVector2D(angle);
         Vector2 direction2 = GetDirectionVector2D(angle2);
         Vector2 playerDirection = (ball.position - transform.position).normalized;
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> parent of 994c32b (ai parannuksia)
         Physics2D.Raycast(startPoint, direction, range);
         Physics2D.Raycast(startPoint, direction2, range);
         Physics2D.Raycast(startPoint, playerDirection, range);
@@ -54,7 +52,6 @@ public class Ai : MonoBehaviour
         Debug.DrawRay(startPoint, direction2 * range, Color.green);
         Debug.DrawRay(startPoint, playerDirection * range, Color.green);
         JumpCooldown();
-<<<<<<< HEAD
 
         // Check if the ball is on the AI's half of the field
         if (ball.position.x < transform.position.x)
@@ -65,8 +62,6 @@ public class Ai : MonoBehaviour
         {
             ballOnOwnHalf = false;
         }
-=======
->>>>>>> parent of 994c32b (ai parannuksia)
     }
 
     public Vector2 GetDirectionVector2D(float angle)
@@ -76,6 +71,7 @@ public class Ai : MonoBehaviour
 
     void FixedUpdate()
     {
+<<<<<<< HEAD
         AvoidPlayer();
         NoOwnGoal();
         ballLocation = ball.position.x - transform.position.x;
@@ -94,6 +90,50 @@ public class Ai : MonoBehaviour
 >>>>>>> parent of 994c32b (ai parannuksia)
             rb.AddForce(moveLocation.normalized * speed);
         }
+=======
+        if (attack == true)
+        {
+            if (p1.position.x < 500f)
+            {
+                rb.AddForce(Vector2.right * speed);
+            }
+        
+            if (transform.position.x > 400f)
+            {
+                Shoot();
+                JumpCooldown();
+                Debug.Log("Ai is on the safezone++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+
+                AvoidPlayer();
+                NoOwnGoal();
+                ballLocation = ball.position.x - transform.position.x;
+                float ballLocationY = ball.position.y - transform.position.y;
+                moveLocation = new Vector2(ballLocation, 0);
+
+                if (avoidPlayer == false)
+                {
+                    rb.AddForce(moveLocation.normalized * speed);
+                }
+
+            }
+            else
+            {
+                Debug.Log("Ai is on the dangerzone-----------------------------------------------------");
+
+                rb.AddForce(Vector2.right * speed);
+            }
+           
+        }
+        else
+        {
+
+        }
+    }
+
+    void Defend()
+    {
+        
+>>>>>>> parent of 31be3c5 (testi)
     }
 
     void JumpCooldown()
