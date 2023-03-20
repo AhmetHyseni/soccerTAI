@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
 guid: 6c82bbfcca1889c46af803d5509d025d
+=======
+<<<<<<< Updated upstream:Assets/Scene/Menu.unity.meta
+guid: 84fcfb71e6099e24a8fb12de4270e834
+=======
+guid: 6c82bbfcca1889c46af803d5509d025d
+>>>>>>> Stashed changes:Assets/Scene/Settings.unity.meta
+>>>>>>> Stashed changes
 DefaultImporter:
   externalObjects: {}
   userData: 
