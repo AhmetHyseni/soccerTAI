@@ -24,12 +24,12 @@ public class playercontroller : MonoBehaviour
     }
     void player1Input()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
             movementX = -1f*speed;
             
         }
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
         {
             movementX = 1f*speed;
         }
@@ -48,6 +48,7 @@ public class playercontroller : MonoBehaviour
 
         if (Input.GetKey(KeyCode.W) && isGrounded==true)
         {
+            Debug.Log("Hyppy on saatavilla");
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
         }
     }
