@@ -30,8 +30,19 @@ public class Score : MonoBehaviour
         scoreCount();
         if (PlayerPrefs.GetInt("player1Score", player1Score) == maxGoal)
         {
+            PauseGame();
             PlayerPrefs.DeleteAll();
         }
+    }
+
+    void PauseGame()
+    {
+        Time.timeScale = 0;
+    }
+
+    void ResumeGame()
+    {
+        Time.timeScale = 1;
     }
 
     public void scoreCount()
