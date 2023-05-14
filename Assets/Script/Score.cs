@@ -68,7 +68,7 @@ public class Score : MonoBehaviour
     public IEnumerator Reset()
     {
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene("vs_AI",LoadSceneMode.Single);
+        SceneManager.LoadScene("PvP",LoadSceneMode.Single);
     }
 
     private void PlayFireworksSound()
